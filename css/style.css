@@ -59,13 +59,14 @@ td {
 }
 
 .edge {
-    background: white;
+    background: #ddd;
     width: 20px;
 }
 
 .wood {
     background-color: #854D28;
     /*    width: 100px;*/
+    background-image: url('../img/wood2.png');
 }
 
 .dot {
@@ -77,7 +78,7 @@ td {
 }
 
 .fret {
-    background: gray;
+    background: #999;
     width: 10px;
 }
 
