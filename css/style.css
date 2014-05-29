@@ -1,0 +1,127 @@
+body
+{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    font-family: Roboto,Arial,sans-serif;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.float-left {
+    float: left;
+}
+
+.fclear-left {
+    float: left;
+    clear: left;
+}
+
+table {
+    bottom:0px;
+    position: fixed;
+    width: 100%;
+    table-layout: fixed
+}
+
+td {
+    text-align: center;
+    position: relative;
+    overflow: visible;
+}
+
+.row-string {
+    height: 7px;
+}
+
+.row1, .row5 {
+    height: 20px;
+}
+
+.row2, .row3, .row4 {
+    height: 60px;
+}
+
+.row-number {
+    height: 30px;
+    font-size: 20px;
+}
+
+.row-number td {
+    background: transparent;
+}
+
+.neck {
+    background: black;
+    width: 30px;
+}
+
+.edge {
+    background: white;
+    width: 20px;
+}
+
+.wood {
+    background-color: #854D28;
+    /*    width: 100px;*/
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #BBBBBB;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.fret {
+    background: gray;
+    width: 10px;
+}
+
+.string {
+}
+
+.string-e .string,
+.string-e .note {
+    background: red;
+    color: #111;
+}
+
+.string-a .string,
+.string-a .note {
+    background: yellow;
+    color: #333;
+}
+
+.string-d .string,
+.string-d .note {
+    background: blue;
+    color: #ddd;
+}
+
+.string-g .string,
+.string-g .note {
+    background: orange;
+    color: #333;
+}
+
+.note {
+    position: absolute;
+    z-index: 10;
+    border-radius: 15px;
+
+    width: 30px;
+    height: 30px;
+
+    left: 50%;
+    margin-left: -15px;
+
+    top: 50%;
+    margin-top: -15px;
+
+    line-height: 28px;
+    cursor: pointer;
+}
