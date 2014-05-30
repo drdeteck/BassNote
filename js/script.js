@@ -96,6 +96,21 @@ window.PL = window.PL || {};
         }
     }
 
+    BassNote.Band = function() {
+        var gameMusic = new BandJS();
+
+        gameMusic.setTimeSignature(2, 2);
+        gameMusic.setTempo(180);
+
+        var rightHand = gameMusic.createInstrument('square', 'oscillators');
+        rightHand.note('quarter', 'E5, F#4');
+         rightHand.repeatFromBeginning(1);
+         rightHand.finish();
+         
+         gameMusic.end();
+         gameMusic.play();
+    }
+
     function DisableStatus(element) {
         $(element).removeClass("active");
         $(element).attr("status", "");
@@ -126,6 +141,9 @@ window.PL = window.PL || {};
             case "scales":
                 $(".section-scale").toggleClass("hidden");
                 ToggleElementStatus(this);
+                break;
+            case "band":
+                BassNote.Band();
                 break;
             }
         });
