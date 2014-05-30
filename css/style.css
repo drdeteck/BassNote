@@ -1,74 +1,120 @@
-body
-{
+body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
-html, body {
-    font-family: Roboto,Arial,sans-serif;
+html,
+body {
+    font-family: Roboto, Arial, sans-serif;
     height: 100%;
     margin: 0px;
     padding: 0px;
 }
-
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+h1,
+h2,
+h3 {
+    margin: 0;
+}
 .float-left {
     float: left;
 }
-
 .fclear-left {
     float: left;
     clear: left;
 }
+/************/
+
+/** Header **/
+
+/************/
+
+h1 {
+    padding: 0 10px;
+}
+nav {
+    position: fixed;
+    display: block;
+    width: 100%;
+    background-color: #555;
+    color: #ddd;
+    height: 60px;
+    line-height: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border-bottom: solid 3px #333;
+}
+nav li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+nav li:hover {
+    background-color: #444;
+}
+nav .active,
+nav .active:hover {
+    background-color: #333;
+}
+/************/
+
+/** Guitar **/
+
+/************/
 
 table {
-    bottom:0px;
+    bottom: 0px;
     position: fixed;
     width: 100%;
     table-layout: fixed
 }
-
 td {
     text-align: center;
     position: relative;
     overflow: visible;
 }
-
 .row-string {
     height: 7px;
 }
-
-.row1, .row5 {
+.row1,
+.row5 {
     height: 20px;
 }
-
-.row2, .row3, .row4 {
+.row2,
+.row3,
+.row4 {
     height: 60px;
 }
-
 .row-number {
     height: 30px;
     font-size: 20px;
 }
-
 .row-number td {
     background: transparent;
 }
-
 .neck {
     background: black;
     width: 30px;
 }
-
 .edge {
     background: #ddd;
     width: 20px;
 }
-
 .wood {
     background-color: #854D28;
     /*    width: 100px;*/
     background-image: url('../img/wood2.png');
 }
-
 .dot {
     height: 10px;
     width: 10px;
@@ -76,53 +122,75 @@ td {
     display: inline-block;
     border-radius: 5px;
 }
-
 .fret {
     background: #999;
     width: 10px;
 }
-
-.string {
-}
-
-.string-e .string,
+.string {} .string-e .string,
 .string-e .note {
     background: red;
     color: #111;
 }
-
 .string-a .string,
 .string-a .note {
     background: yellow;
     color: #333;
 }
-
 .string-d .string,
 .string-d .note {
     background: blue;
     color: #ddd;
 }
-
 .string-g .string,
 .string-g .note {
     background: orange;
     color: #333;
 }
-
 .note {
     position: absolute;
     z-index: 10;
     border-radius: 15px;
-
     width: 30px;
     height: 30px;
-
     left: 50%;
     margin-left: -15px;
-
     top: 50%;
     margin-top: -15px;
-
     line-height: 28px;
     cursor: pointer;
+}
+/*************/
+
+/** Section **/
+
+/*************/
+
+.section-scale {
+    background-color: #E1FB3F;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: solid #A6BA2E;
+    margin-top: 80px;
+    box-sizing: padding-box;
+    padding: 10px 0;
+}
+.section-scale.hidden {
+    left: -170px;
+    position: absolute;
+}
+.section-scale ul,
+.section-scale h2 {
+    padding: 0 10px;
+}
+.section-scale li {
+    padding: 3px 10px;
+    cursor: pointer;
+    word-wrap: normal;
+}
+.section-scale li:hover {
+    background-color: #A6BA2E;
+}
+.section-scale .active,
+.section-scale .active:hover {
+    background-color: #8BA100;
 }
