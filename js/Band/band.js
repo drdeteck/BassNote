@@ -126,6 +126,10 @@
 
                         return self;
                     };
+                    
+                    this.clear = function() {
+                        soundsBuffer = [];   
+                    }
 
                     /**
                      * Add a note to an instrument

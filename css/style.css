@@ -165,12 +165,15 @@ td {
 
 /*************/
 
+.section {
+    margin-top: 80px;
+}
+
 .section-scale {
     background-color: #E1FB3F;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border: solid #A6BA2E;
-    margin-top: 80px;
     box-sizing: padding-box;
     padding: 10px 0;
 }
@@ -193,4 +196,16 @@ td {
 .section-scale .active,
 .section-scale .active:hover {
     background-color: #8BA100;
+}
+
+.section-input {
+    background-color: pale-blue;
+    height: 100px;
+    width: 500px;
+}
+
+.tab-seeker {
+    width: 100%;
+    height: 64px;
+    font-family: Courier;
 }

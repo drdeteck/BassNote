@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)http://www.jamwithchrome.com/session/agxzfmNocm9tZS1qYW1yFAsSB1Nlc3Npb24YgICA6Ij3vgoM/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  
+  <title>JAM with Chrome</title>
+  
+  
+    <meta name="description" content="Choose one of 19 instruments and JAM with your friends online">
+    <meta property="og:title" content="Play music live with your friends online">
+    <meta property="og:image" content="http://chrome-jam-static.commondatastorage.googleapis.com/img/interface/social_thumb.png">
+    <meta property="og:description" content="Choose one of 19 instruments and JAM with your friends online">
+
+  
+
+  <meta property="og:url" content="http://www.jamwithchrome.com">
+  
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="http://www.jamwithchrome.com/css/compiled.css">  
+  
+  <link rel="canonical" href="http://www.jamwithchrome.com/">
+  
+  
+  
+  <script src="./JAM with Chrome_files/cb=gapi.loaded_0" async=""></script><script src="./JAM with Chrome_files/ga.js"></script><script>
+
+    var search = window.location.search || '',
+        supported_websocket = false,
+        supported_audio = false,
+        force = search.match(/try=true/),
+        a = document.createElement('audio');
+
+    window.___gcfg = {
+      lang: 'en'
+    };
+    
+    if(typeof(window.WebSocket) != "undefined") supported_websocket = true;
+    if(typeof(window.AudioContext) != "undefined") supported_audio = true;
+    if(typeof(window.webkitAudioContext) != "undefined") supported_audio = true;
+    
+    ogg = !!(a.canPlayType && a.canPlayType('audio/ogg; codecs="vorbis"').replace(/no/, ''))
+
+    if ( !force && (!supported_websocket || !supported_audio || !ogg) )   {
+        window.location.replace("/unsupported?link="+encodeURIComponent(window.location.href)+search.replace("?","&"));
+    }
+    
+    
+    var JAM = (function(){
+      "use strict";
+      return {
+        namespace: function(name) {
+          if(this[name] === undefined) { this[name] = {}; }
+          if(typeof this[name] !== 'object') { throw "Namespace Error: "+name; }
+          return this[name];
+        }
+      };
+    })();
+    
+    document.onreadystatechange = function () {  
+      if (document.readyState == "complete") {
+        if(force){
+          document.getElementById("unsupported-warning").style.display = 'block';
+        }
+        
+        JAM.app.init();
+      }  
+    };
+
+  </script>
+  
+  <script src="./JAM with Chrome_files/jquery.min.js"></script>  
+  
+  <script async="" src="./JAM with Chrome_files/runtime.js"></script>
+  
+  
+  <script src="./JAM with Chrome_files/app.js"></script>
+  
+  <script async="" src="./JAM with Chrome_files/compiled_templates.tmpl.js"></script>
+  
+  <script async="" type="application/json" src="./JAM with Chrome_files/en.json"></script>
+  <script async="" src="./JAM with Chrome_files/all.js"></script>
+  
+<meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;Google Analytics&quot;:-1,&quot;jQuery&quot;:&quot;1.8.2&quot;,&quot;jQuery UI&quot;:&quot;1.8.23&quot;,&quot;Facebook&quot;:-1}"><script type="text/javascript" src="chrome-extension://homgcnaoacgigpkkljjjekpignblkeae/detector.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,.fb_connect_bar_container span,.fb_connect_bar_container a,.fb_connect_bar_container img,.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}.fb_connect_bar a:hover{color:#fff}.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}.fb_connect_bar div a,.fb_connect_bar span,.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fbpluginrecommendationsbarleft,.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}.fbpluginrecommendationsbarleft{left:10px}.fbpluginrecommendationsbarright{right:10px}</style></head>
+<body style="background: rgb(255, 255, 255);"><iframe src="./JAM with Chrome_files/activityi;src=2542116;type=chrom322;cat=chrom618.htm" width="1" height="1" frameborder="0" style="display:none"></iframe><iframe src="./JAM with Chrome_files/activityi;src=2542116;type=chrom322;cat=chrom555.htm" width="1" height="1" frameborder="0" style="display:none"></iframe>
+
+  <div id="header" class="help_tour">
+    <div id="unsupported-warning" style="display:none">JAM with Chrome requires modern web technologies like Web Audio and Web Sockets. <a href="http://www.google.com/chrome/jam" target="_blank">Download Chrome</a> to run this site.</div>
+  </div>
+  
+  <div id="main"><div id="instrument_local">
+    <div id="metronome-loader">
+        <div id="metronome-box">
+            <div id="metronome-arm" class="on"></div>
+        </div>
+        <div id="loading">Loading</div>
+    </div>
+
+</div>
+<div id="remotes-holder" class="hide">
+    <div id="remotes">
+
+      <div id="chat-btn" class="before_load">
+        <div id="chat-notification">
+          <span id="count">3</span>
+        </div>
+        <div id="block">
+          <span data-t="jam_chat">Chat</span>
+          <hr>
+          <hr>
+          <hr>
+          <hr>
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <polygon points="0,0 14,0 0,17"></polygon>
+          </svg>
+        </div>
+
+        </div>
+
+        
+        <div id="player_agxzfmNocm9tZS1qYW1yEwsSBkNsaWVudBiAgIConIOQCgw" class="instrument_remote  me instrument">
+  <div class="background_triangle_holder before_load">
+    <svg xmlns="http://www.w3.org/2000/svg" width="226px" height="150px" class="background_triangle">
+        <polygon class="player_triangle" points="0,50 0,150 226,150"></polygon>
+    </svg>
+  </div>
+  <div class="instrument_icon before_load">
+    
+      
+  </div>
+  <div class="bottom_bar before_load">
+    <span class="nickname">
+      Band Buddy
+    </span>
+    <span class="crown leader"></span>
+  </div>
+  
+  
+ <div class="chat">
+  </div> 
+
+</div><div class="instrument_remote invite">
+            <div class="background_triangle_holder before_load">
+                <svg xmlns="http://www.w3.org/2000/svg" width="226px" height="150px" class="background_triangle">
+                    <polygon class="player_triangle" points="0,50 0,150 226,150"></polygon>
+                </svg>
+            </div>
+            <div class="plusInvite before_load">
+                +
+            </div>
+            <div class="bottom_bar before_load bottom_invite" data-t="invite_friends">
+                Invite a friend
+            </div>
+        </div>
+        
+        <div class="instrument_remote invite">
+            <div class="background_triangle_holder before_load">
+                <svg xmlns="http://www.w3.org/2000/svg" width="226px" height="150px" class="background_triangle">
+                    <polygon class="player_triangle" points="0,50 0,150 226,150"></polygon>
+                </svg>
+            </div>
+            <div class="plusInvite before_load">
+                +
+            </div>
+            <div class="bottom_bar before_load bottom_invite" data-t="invite_friends">
+                Invite a friend
+            </div>
+        </div>
+        
+        <div class="instrument_remote invite">
+            <div class="background_triangle_holder before_load">
+                <svg xmlns="http://www.w3.org/2000/svg" width="226px" height="150px" class="background_triangle">
+                    <polygon class="player_triangle" points="0,50 0,150 226,150"></polygon>
+                </svg>
+            </div>
+            <div class="plusInvite before_load">
+                +
+            </div>
+            <div class="bottom_bar before_load bottom_invite" data-t="invite_friends">
+                Invite a friend
+            </div>
+        </div>
+        
+        <div class="instrument_remote invite">
+            <div class="background_triangle_holder before_load">
+                <svg xmlns="http://www.w3.org/2000/svg" width="226px" height="150px" class="background_triangle">
+                    <polygon class="player_triangle" points="0,50 0,150 226,150"></polygon>
+                </svg>
+            </div>
+            <div class="plusInvite before_load">
+                +
+            </div>
+            <div class="bottom_bar before_load bottom_invite" data-t="invite_friends">
+                Invite a friend
+            </div>
+        </div>
+        
+    </div>
+    <div class="clear">
+    </div>
+</div>
+
+
+</div>
+  
+  <div id="footer" style="bottom: 0px;" class="double"><ul class="right">
+
+    <li id="chrome" class="right">
+        <a href="http://www.google.com/chrome/jam" target="_blank">
+          <img src="./JAM with Chrome_files/chrome.png"></a>
+    </li>
+
+    <li class="footer-social-button right" id="twitter">
+            <img src="./JAM with Chrome_files/twitter.png">
+        <div>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="easy">
+            <polygon class="bg" points=" 11,0 48,0 37,28 0,28 " fill="#ce5e1f"></polygon>
+            <polygon class="up" points=" 48,0 37,28 0,28 " fill="#b74621"></polygon>
+            <polygon class="up" points=" 11,0 0,28 3,26 " fill="#ecbe8b"></polygon>
+            <polygon class="up" points=" 48,0 37,28 45,2 " fill="#711c1c"></polygon>
+        </svg>
+        </div>
+    </li>
+    <li class="footer-social-button right" id="facebook">
+            <img src="./JAM with Chrome_files/facebook.png">
+        <div>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="easy">
+            <polygon class="bg" points=" 11,0 48,0 37,28 0,28 " fill="#ce5e1f"></polygon>
+            <polygon class="up" points=" 48,0 37,28 0,28 " fill="#b74621"></polygon>
+            <polygon class="up" points=" 11,0 0,28 3,26 " fill="#ecbe8b"></polygon>
+            <polygon class="up" points=" 48,0 37,28 45,2 " fill="#711c1c"></polygon>
+        </svg>
+        </div>
+    </li>
+    <li class="footer-social-button right" id="gplus">
+            <img src="./JAM with Chrome_files/g-plus.png">
+        <div>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="easy">
+            <polygon class="bg" points=" 11,0 48,0 37,28 0,28 " fill="#ce5e1f"></polygon>
+            <polygon class="up" points=" 48,0 37,28 0,28 " fill="#b74621"></polygon>
+            <polygon class="up" points=" 11,0 0,28 3,26 " fill="#ecbe8b"></polygon>
+            <polygon class="up" points=" 48,0 37,28 45,2 " fill="#711c1c"></polygon>
+        </svg>
+        </div>
+    </li>
+</ul>
+
+<ul class="left">
+    <li id="terms" class="left">
+        <a href="https://www.google.com/policies/" target="_blank" data-t="terms_privacy">Terms &amp; Privacy</a>
+    </li>
+    <li id="technology" class="left">
+        <a href="http://www.jamwithchrome.com/technology" target="_blank" data-t="technology">Technology</a>
+    </li>
+    <li id="language-selector" class="left" style="display: none;"><a data-lang="en" class="selected">English</a> <span>|</span>
+    <a data-lang="en" href="http://www.jamwithchrome.com/session/agxzfmNocm9tZS1qYW1yFAsSB1Nlc3Npb24YgICA6Ij3vgoM/#">english</a>
+    </li>
+</ul>
+</div>
+  
+  
+  <script async="" src="./JAM with Chrome_files/dmaf_all.js"></script>
+  
+  <script async="" src="./JAM with Chrome_files/client.js" gapi_processed="true"></script>
+
+
+
+
+<iframe name="oauth2relay553621017" id="oauth2relay553621017" src="./JAM with Chrome_files/postmessageRelay.htm" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./JAM with Chrome_files/oDB-fAAStWy.htm" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./JAM with Chrome_files/oDB-fAAStWy(1).htm" style="border: none;"></iframe></div></div></div><iframe id="apiproxy3401fa6929b50ea90789e72f4e41f847455aeb860.5399644789285958" name="apiproxy3401fa6929b50ea90789e72f4e41f847455aeb860.5399644789285958" src="./JAM with Chrome_files/proxy.htm" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

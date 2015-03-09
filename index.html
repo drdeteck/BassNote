@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" itemscope itemtype="http://schema.org/Article">
 
 <head>
@@ -39,26 +39,29 @@
     <script type="text/javascript" src="js/knockout-3.0.0.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
     <script type="text/javascript" src="js/modernizr-2.6.2.js"></script>
-    
-    
-    <script type="text/javascript" src="js/band.js"></script>
+
+    <!--<script type="text/javascript" src="js/band.js"></script>
     <script type="text/javascript" src="js/equal-temperament.js"></script>
     <script type="text/javascript" src="js/rhythm-us.js"></script>
     <script type="text/javascript" src="js/oscillators.js"></script>
-    <script type="text/javascript" src="js/noises.js"></script>
-    
-    
+    <script type="text/javascript" src="js/noises.js"></script>-->
+
+    <script type="text/javascript" src="js/Base64.js"></script>
+    <script type="text/javascript" src="js/base64binary.js"></script>
+    <script type="text/javascript" src="js/Midi/midi.js"></script>
+
     <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/tab-parser.js"></script>
 
     <!-- Google Analytics -->
     <script type="text/javascript">
         // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-         // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-         // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-         // ga('create', 'UA-31135800-3', 'philippelavoie.com');
-         // ga('send', 'pageview');
+        // ga('create', 'UA-31135800-3', 'philippelavoie.com');
+        // ga('send', 'pageview');
     </script>
 </head>
 
@@ -71,7 +74,7 @@
             <li cmd="band">Band</li>
         </ul>
     </nav>
-    <div class="fclear-left section-scale">
+    <div class="fclear-left section section-scale">
         <h2>Scales</h2>
         <ul>
             <li data="major">major</li>
@@ -86,6 +89,15 @@
             <li data="harmonic-minor">harmonic minor</li>
             <li data="phrygian-dominant">phrygian dominant</li>
         </ul>
+    </div>
+
+    <div class="float-left section section-input">
+        <div class="tab-seeker">
+            <span class="string-label string1-label" data-bind="text: String1Label"></span><span class="string-notes string1-notes" data-bind="text: String1Notes"></span><br />
+            <span class="string-label string2-label" data-bind="text: String2Label"></span><span class="string-notes string2-notes" data-bind="text: String2Notes"></span><br />
+            <span class="string-label string3-label" data-bind="text: String3Label"></span><span class="string-notes string3-notes" data-bind="text: String3Notes"></span><br />
+            <span class="string-label string4-label" data-bind="text: String4Label"></span><span class="string-notes string4-notes" data-bind="text: String4Notes"></span>
+        </div>
     </div>
 
     <table cellspacing="0px">
@@ -124,51 +136,68 @@
             <td class="fret"></td>
         </tr>
         <tr class="row-string string-g">
-            <td class="string"></td>
-            <td class="string"></td>
-            <td class="string" id="g1"><span class="note">G#</span>
+            <td class="string" id="43">
+                <span class="note">G#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g2"><span class="note">A</span>
+            <td class="string" id="44">
+                <span class="note">G#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g3"><span class="note">A#</span>
+            <td class="string" id="45">
+                <span class="note">A</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g4"><span class="note">B</span>
+            <td class="string" id="46">
+                <span class="note">A#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g5"><span class="note">C</span>
+            <td class="string" id="47">
+                <span class="note">B</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g6"><span class="note">C#</span>
+            <td class="string" id="48">
+                <span class="note">C</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g7"><span class="note">D</span>
+            <td class="string" id="49">
+                <span class="note">C#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g8"><span class="note">D#</span>
+            <td class="string" id="50">
+                <span class="note">D</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g9"><span class="note">E</span>
+            <td class="string" id="51">
+                <span class="note">D#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g10"><span class="note">F</span>
+            <td class="string" id="52">
+                <span class="note">E</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g11"><span class="note">F#</span>
+            <td class="string" id="53">
+                <span class="note">F</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g12"><span class="note">G</span>
+            <td class="string" id="54">
+                <span class="note">F#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g13"><span class="note">G#</span>
+            <td class="string" id="55">
+                <span class="note">G</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g14"><span class="note">A</span>
+            <td class="string" id="56">
+                <span class="note">G#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="g15"><span class="note">A#</span>
+            <td class="string" id="57">
+                <span class="note">A</span>
+            </td>
+            <td class="string"></td>
+            <td class="string" id="58">
+                <span class="note">A#</span>
             </td>
             <td class="string"></td>
         </tr>
@@ -207,51 +236,68 @@
             <td class="fret"></td>
         </tr>
         <tr class="row-string string-d">
-            <td class="string"></td>
-            <td class="string"></td>
-            <td class="string" id="d1"><span class="note">D#</span>
+            <td class="string" id="38">
+                <span class="note">D</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d2"><span class="note">E</span>
+            <td class="string" id="39">
+                <span class="note">D#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d3"><span class="note">F</span>
+            <td class="string" id="40">
+                <span class="note">E</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d4"><span class="note">F#</span>
+            <td class="string" id="41">
+                <span class="note">F</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d5"><span class="note">G</span>
+            <td class="string" id="42">
+                <span class="note">F#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d6"><span class="note">G#</span>
+            <td class="string" id="43">
+                <span class="note">G</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d7"><span class="note">A</span>
+            <td class="string" id="44">
+                <span class="note">G#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d8"><span class="note">A#</span>
+            <td class="string" id="45">
+                <span class="note">A</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d9"><span class="note">B</span>
+            <td class="string" id="46">
+                <span class="note">A#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d10"><span class="note">C</span>
+            <td class="string" id="47">
+                <span class="note">B</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d11"><span class="note">C#</span>
+            <td class="string" id="48">
+                <span class="note">C</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d12"><span class="note">D</span>
+            <td class="string" id="49">
+                <span class="note">C#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d13"><span class="note">D#</span>
+            <td class="string" id="50">
+                <span class="note">D</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d14"><span class="note">E</span>
+            <td class="string" id="51">
+                <span class="note">D#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="d15"><span class="note">F</span>
+            <td class="string" id="52">
+                <span class="note">E</span>
+            </td>
+            <td class="string"></td>
+            <td class="string" id="53">
+                <span class="note">F</span>
             </td>
             <td class="string"></td>
         </tr>
@@ -262,85 +308,108 @@
             <td class="fret"></td>
             <td class="wood"></td>
             <td class="fret"></td>
-            <td class="wood"><span class="dot"></span>
+            <td class="wood">
+                <span class="dot"></span>
             </td>
             <td class="fret"></td>
             <td class="wood"></td>
             <td class="fret"></td>
-            <td class="wood"><span class="dot"></span>
+            <td class="wood">
+                <span class="dot"></span>
             </td>
             <td class="fret"></td>
             <td class="wood"></td>
             <td class="fret"></td>
-            <td class="wood"><span class="dot"></span>
+            <td class="wood">
+                <span class="dot"></span>
             </td>
             <td class="fret"></td>
             <td class="wood"></td>
             <td class="fret"></td>
-            <td class="wood"><span class="dot"></span>
-            </td>
-            <td class="fret"></td>
-            <td class="wood"></td>
-            <td class="fret"></td>
-            <td class="wood"></td>
-            <td class="fret"></td>
-            <td class="wood"><span class="dot"></span><span>&nbsp;</span><span class="dot"></span>
+            <td class="wood">
+                <span class="dot"></span>
             </td>
             <td class="fret"></td>
             <td class="wood"></td>
             <td class="fret"></td>
             <td class="wood"></td>
             <td class="fret"></td>
-            <td class="wood"><span class="dot"></span>
+            <td class="wood">
+                <span class="dot"></span><span>&nbsp;</span><span class="dot"></span>
+            </td>
+            <td class="fret"></td>
+            <td class="wood"></td>
+            <td class="fret"></td>
+            <td class="wood"></td>
+            <td class="fret"></td>
+            <td class="wood">
+                <span class="dot"></span>
             </td>
             <td class="fret"></td>
         </tr>
         <tr class="row-string string-a">
-            <td class="string"></td>
-            <td class="string"></td>
-            <td class="string" id="a1"><span class="note">A#</span>
+            <td class="string" id="33" note="E3">
+                <span class="note">A</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a2"><span class="note">B</span>
+            <td class="string" id="34">
+                <span class="note">A#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a3"><span class="note">C</span>
+            <td class="string" id="35">
+                <span class="note">B</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a4"><span class="note">C#</span>
+            <td class="string" id="36">
+                <span class="note">C</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a5"><span class="note">D</span>
+            <td class="string" id="37">
+                <span class="note">C#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a6"><span class="note">D#</span>
+            <td class="string" id="38">
+                <span class="note">D</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a7"><span class="note">E</span>
+            <td class="string" id="39">
+                <span class="note">D#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a8"><span class="note">F</span>
+            <td class="string" id="40">
+                <span class="note">E</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a9"><span class="note">F#</span>
+            <td class="string" id="41">
+                <span class="note">F</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a10"><span class="note">G</span>
+            <td class="string" id="42">
+                <span class="note">F#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a11"><span class="note">G#</span>
+            <td class="string" id="43">
+                <span class="note">G</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a12"><span class="note">A</span>
+            <td class="string" id="44">
+                <span class="note">G#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a13"><span class="note">A#</span>
+            <td class="string" id="45">
+                <span class="note">A</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a14"><span class="note">B</span>
+            <td class="string" id="46">
+                <span class="note">A#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="a15"><span class="note">C</span>
+            <td class="string" id="47">
+                <span class="note">B</span>
+            </td>
+            <td class="string"></td>
+            <td class="string" id="48">
+                <span class="note">C</span>
             </td>
             <td class="string"></td>
         </tr>
@@ -379,51 +448,68 @@
             <td class="fret"></td>
         </tr>
         <tr class="row-string string-e">
-            <td class="string"></td>
-            <td class="string"></td>
-            <td class="string" id="e1"><span class="note">F</span>
+            <td class="string" id="28" note="E3">
+                <span class="note">E</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e2"><span class="note">F#</span>
+            <td class="string" id="29" note="F3">
+                <span class="note">F</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e3"><span class="note">G</span>
+            <td class="string" id="30" note="F#3">
+                <span class="note">F#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e4"><span class="note">G#</span>
+            <td class="string" id="31" note="G3">
+                <span class="note">G</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e5"><span class="note">A</span>
+            <td class="string" id="32" note="G#3">
+                <span class="note">G#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e6"><span class="note">A#</span>
+            <td class="string" id="33" note="A3">
+                <span class="note">A</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e7"><span class="note">B</span>
+            <td class="string" id="34" note="A#3">
+                <span class="note">A#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e8"><span class="note">C</span>
+            <td class="string" id="35" note="B3">
+                <span class="note">B</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e9"><span class="note">C#</span>
+            <td class="string" id="36">
+                <span class="note">C</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e10"><span class="note">D</span>
+            <td class="string" id="37">
+                <span class="note">C#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e11"><span class="note">D#</span>
+            <td class="string" id="38">
+                <span class="note">D</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e12"><span class="note">E</span>
+            <td class="string" id="39">
+                <span class="note">D#</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e13"><span class="note">F</span>
+            <td class="string" id="40">
+                <span class="note">E</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e14"><span class="note">F#</span>
+            <td class="string" id="41">
+                <span class="note">F</span>
             </td>
             <td class="string"></td>
-            <td class="string" id="e15"><span class="note">G</span>
+            <td class="string" id="42">
+                <span class="note">F#</span>
+            </td>
+            <td class="string"></td>
+            <td class="string" id="43">
+                <span class="note">G</span>
             </td>
             <td class="string"></td>
         </tr>

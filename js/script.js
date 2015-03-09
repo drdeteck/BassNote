@@ -22,6 +22,9 @@ window.PL = window.PL || {};
     // Create the View Model, Apply the Knockout binding and call the WebService
     BassNote.Setup = function () {
         $(document).ready(function () {
+
+            PL.Sound.Initialize();
+
             BassNote.HideAllNotes();
 
             //              BassNote.ViewModel = new BassNoteViewModel();          
@@ -29,7 +32,7 @@ window.PL = window.PL || {};
 
             SetupMenu();
 
-            // Scales
+            // Setup Scales
             $(".section-scale li").click(function () {
 
                 if (!$(this).hasClass("active")) {
@@ -40,6 +43,11 @@ window.PL = window.PL || {};
                 $(".section-scale li").removeClass("active");
                 $(this).addClass("active");
             });
+
+            // Dummy Data for input
+            var tab = "G|---------------------------|\r\nD|---------------------------|\r\nA|-33333---------------------|\r\nE|--------33333-55555-11111--|";
+
+            PL.TabParser.Setup(tab, ".section-input");
         });
 
         // $(window).resize(function() {
@@ -60,55 +68,40 @@ window.PL = window.PL || {};
         BassNote.HideAllNotes();
 
         switch (scale) {
-        case "major":
-            $("#a4 span, #d4 span, #g4 span, #e5 span, #a5 span, #d6 span, #g6 span, #e7 span, #a7 span, #d7 span, #g7 span").show();
-            break;
-        case "minor":
-            $("#g4 span, #e5 span, #a5 span, #d5 span, #g5 span, #e7 span, #a7 span, #d7 span, #g7 span, #e8 span, #a8 span").show();
-            break;
-        case "major-pentatonic":
-            $("#a4 span, #d4 span, #g4 span, #e5 span, #g6 span, #e7 span, #a7 span, #d7 span").show();
-            break;
-        case "minor-pentatonic":
-            $("#e5 span, #a5 span, #d5 span, #g5 span, #a7 span, #d7 span, #g7 span, #e8 span").show();
-            break;
-        case "blues":
-            $("#e5 span, #a5 span, #d5 span, #g5 span, #a6 span, #a7 span, #d7 span, #g7 span, #e8 span, #g8 span").show();
-            break;
-        case "dorian":
-            $("#d4 span, #g4 span, #e5 span, #a5 span, #d5 span, #g5 span, #e7 span, #a7 span, #d7 span, #g7 span, #e8 span").show();
-            break;
-        case "phrygian":
-            $("#e5 span, #a5 span, #d5 span, #g5 span, #e6 span, #a7 span, #d7 span, #g7 span, #e8 span, #a8 span, #d8 span").show();
-            break;
-        case "lydian":
-            $("#a4 span, #d4 span, #g4 span, #e5 span, #a6 span, #d6 span, #g6 span, #e7 span, #a7 span, #d7 span").show();
-            break;
-        case "mixolydian":
-            $("#a4 span, #d4 span, #g4 span, #e5 span, #a5 span, #d5 span, #g5 span, #e7 span, #a7 span, #d7 span, #g7 span").show();
-            break;
-        case "harmonic-minor":
-            $("#g4 span, #e5 span, #a5 span, #g5 span, #d6 span, #e7 span, #a7 span, #d7 span, #g7 span, #e8 span, #a8 span").show();
-            break;
-        case "phrygian-dominant":
-            $("#e5 span, #a5 span, #d5 span, #e6 span, #g6 span, #a7 span, #d7 span, #g7 span, #a8 span, #d8 span, #e9 span").show();
-            break;
+            case "major":
+                $("#a4 span, #d4 span, #g4 span, #e5 span, #a5 span, #d6 span, #g6 span, #e7 span, #a7 span, #d7 span, #g7 span").show();
+                break;
+            case "minor":
+                $("#g4 span, #e5 span, #a5 span, #d5 span, #g5 span, #e7 span, #a7 span, #d7 span, #g7 span, #e8 span, #a8 span").show();
+                break;
+            case "major-pentatonic":
+                $("#a4 span, #d4 span, #g4 span, #e5 span, #g6 span, #e7 span, #a7 span, #d7 span").show();
+                break;
+            case "minor-pentatonic":
+                $("#e5 span, #a5 span, #d5 span, #g5 span, #a7 span, #d7 span, #g7 span, #e8 span").show();
+                break;
+            case "blues":
+                $("#e5 span, #a5 span, #d5 span, #g5 span, #a6 span, #a7 span, #d7 span, #g7 span, #e8 span, #g8 span").show();
+                break;
+            case "dorian":
+                $("#d4 span, #g4 span, #e5 span, #a5 span, #d5 span, #g5 span, #e7 span, #a7 span, #d7 span, #g7 span, #e8 span").show();
+                break;
+            case "phrygian":
+                $("#e5 span, #a5 span, #d5 span, #g5 span, #e6 span, #a7 span, #d7 span, #g7 span, #e8 span, #a8 span, #d8 span").show();
+                break;
+            case "lydian":
+                $("#a4 span, #d4 span, #g4 span, #e5 span, #a6 span, #d6 span, #g6 span, #e7 span, #a7 span, #d7 span").show();
+                break;
+            case "mixolydian":
+                $("#a4 span, #d4 span, #g4 span, #e5 span, #a5 span, #d5 span, #g5 span, #e7 span, #a7 span, #d7 span, #g7 span").show();
+                break;
+            case "harmonic-minor":
+                $("#g4 span, #e5 span, #a5 span, #g5 span, #d6 span, #e7 span, #a7 span, #d7 span, #g7 span, #e8 span, #a8 span").show();
+                break;
+            case "phrygian-dominant":
+                $("#e5 span, #a5 span, #d5 span, #e6 span, #g6 span, #a7 span, #d7 span, #g7 span, #a8 span, #d8 span, #e9 span").show();
+                break;
         }
-    }
-
-    BassNote.Band = function() {
-        var gameMusic = new BandJS();
-
-        gameMusic.setTimeSignature(2, 2);
-        gameMusic.setTempo(180);
-
-        var rightHand = gameMusic.createInstrument('square', 'oscillators');
-        rightHand.note('quarter', 'E5, F#4');
-         rightHand.repeatFromBeginning(1);
-         rightHand.finish();
-         
-         gameMusic.end();
-         gameMusic.play();
     }
 
     function DisableStatus(element) {
@@ -130,28 +123,63 @@ window.PL = window.PL || {};
     function SetupMenu() {
         $("nav li").click(function () {
             switch ($(this).attr("cmd")) {
-            case "notes":
-                if ($(this).attr("status") === "active") {
-                    BassNote.HideAllNotes();
-                } else {
-                    BassNote.ShowAllNotes();
-                }
-                ToggleElementStatus(this);
-                break;
-            case "scales":
-                $(".section-scale").toggleClass("hidden");
-                ToggleElementStatus(this);
-                break;
-            case "band":
-                BassNote.Band();
-                break;
+                case "notes":
+                    if ($(this).attr("status") === "active") {
+                        BassNote.HideAllNotes();
+                    } else {
+                        BassNote.ShowAllNotes();
+                    }
+                    ToggleElementStatus(this);
+                    break;
+                case "scales":
+                    $(".section-scale").toggleClass("hidden");
+                    ToggleElementStatus(this);
+                    break;
+                case "band":
+                    PL.Sound.PlayNote(50);
+                    break;
+            }
+        });
+
+        $(".note").click(function () {
+            PL.Sound.PlayNote($(this).parent().attr("id"));
+        });
+    }
+
+}(PL.BassNote = PL.BassNote || {}, $));
+
+/*********/
+/* Sound */
+/*********/
+
+(function (Sound, $, undefined) {
+
+    // Public Properties
+    Sound.delay = 0; // play one note every quarter second
+    Sound.velocity = 127; // how hard the note hits
+
+    Sound.Initialize = function () {
+        
+        MIDI.loadPlugin({
+            soundfontUrl: "./sound/",
+            instrument: "electric_bass_finger",
+            callback: function () {
+                MIDI.programChange(0, 33); // Set Bass Finger in MIDI program
+                MIDI.setVolume(0, 255); // Max volume with no distortion ?
             }
         });
     }
 
+    Sound.Check = function () {
 
-}(PL.BassNote = PL.BassNote || {}, $));
+    }
 
+    Sound.PlayNote = function (note) {
+        MIDI.noteOn(0, note, Sound.velocity, Sound.delay);
+        MIDI.noteOff(0, note, Sound.delay + 0.5);
+    }
+
+}(PL.Sound = PL.Sound || {}, $));
 
 /***************/
 /* Utilities */
