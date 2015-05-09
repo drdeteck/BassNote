@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" itemscope itemtype="http://schema.org/Article">
 
 <head>
@@ -40,12 +40,6 @@
     <script type="text/javascript" src="js/underscore-min.js"></script>
     <script type="text/javascript" src="js/modernizr-2.6.2.js"></script>
 
-    <!--<script type="text/javascript" src="js/band.js"></script>
-    <script type="text/javascript" src="js/equal-temperament.js"></script>
-    <script type="text/javascript" src="js/rhythm-us.js"></script>
-    <script type="text/javascript" src="js/oscillators.js"></script>
-    <script type="text/javascript" src="js/noises.js"></script>-->
-
     <script type="text/javascript" src="js/Base64.js"></script>
     <script type="text/javascript" src="js/base64binary.js"></script>
     <script type="text/javascript" src="js/Midi/midi.js"></script>
@@ -69,26 +63,20 @@
     <nav>
         <h1 class="float-left">Bass Note</h1>
         <ul>
-            <li cmd="notes">Notes</li>
-            <li cmd="scales">Scales</li>
-            <li cmd="band">Band</li>
+            <li data-bind="click: NotesClick">Notes</li>
+            <li data-bind="click: ScalesClick">Scales</li>
+            <li class="cmd language float-right" data-bind="click: LanguageClick">
+              <label class="btn active" data="en"><input type="radio" data="en" autocomplete="off" checked>English</label>
+              <label class="btn" data="fr"><input type="radio" data="fr" autocomplete="off">Français</label>
+              <label class="btn" data="midi"><input type="radio" data="midi" autocomplete="off">Midi</label>
+            </li>
         </ul>
     </nav>
-    <div class="fclear-left section section-scale">
+    <div id="scales" class="fclear-left section section-scale">
         <h2>Scales</h2>
-        <ul>
-            <li data="major">major</li>
-            <li data="minor">minor</li>
-            <li data="major-pentatonic">major pentatonic</li>
-            <li data="minor-pentatonic">minor pentatonic</li>
-            <li data="blues">blues</li>
-            <li data="dorian">dorian</li>
-            <li data="phrygian">phrygian</li>
-            <li data="lydian">lydian</li>
-            <li data="mixolydian">mixolydian</li>
-            <li data="harmonic-minor">harmonic minor</li>
-            <li data="phrygian-dominant">phrygian dominant</li>
-        </ul>
+        <ol data-bind="foreach: Scales">
+            <li data-bind="text: Name, click: Click"></li>
+        </ol>
     </div>
 
     <div class="float-left section section-input">
@@ -124,6 +112,11 @@
         </td>
     </script>
 
+    <!-- Template for a number -->
+    <script id="number-template" type="text/html">
+        <td class="number" data-bind="text: Name"></td>
+    </script>
+	
     <!-- Template for a note -->
     <script id="note-template" type="text/html">
         <td class="string" data-bind="attr: {id: Id}">
@@ -132,10 +125,5 @@
     </script>
 
     <table id="fret-board" cellspacing="0px" data-bind="template: { name: 'string-template', foreach: BoardRows }"></table>
-
-    <!-- Templates -->
-    <script type="text/html" id="">
-    </script>
 </body>
-
 </html>
