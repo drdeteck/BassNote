@@ -1,6 +1,5 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" itemscope itemtype="http://schema.org/Article">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta name="author" content="Philippe Lavoie" />
@@ -35,17 +34,19 @@
     <link rel="image_src" href="img/logo.png" />
 
     <!-- Javascript -->
-    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="js/knockout-3.0.0.js"></script>
-    <script type="text/javascript" src="js/underscore-min.js"></script>
-    <script type="text/javascript" src="js/modernizr-2.6.2.js"></script>
+    <script type="text/javascript" src="js/Libs/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/Libs/knockout-3.0.0.js"></script>
+    <script type="text/javascript" src="js/Libs/underscore-min.js"></script>
+    <script type="text/javascript" src="js/Libs/modernizr-2.6.2.js"></script>
 
-    <script type="text/javascript" src="js/Base64.js"></script>
-    <script type="text/javascript" src="js/base64binary.js"></script>
+    <script type="text/javascript" src="js/Libs/Base64.js"></script>
+    <script type="text/javascript" src="js/Libs/base64binary.js"></script>
     <script type="text/javascript" src="js/Midi/midi.js"></script>
 
+    <script type="text/javascript" src="js/tab-decoder.js"></script>
+    <script type="text/javascript" src="js/songs.js"></script>
+    <script type="text/javascript" src="js/fretboard.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/tab-parser.js"></script>
 
     <!-- Google Analytics -->
     <script type="text/javascript">
@@ -58,13 +59,14 @@
         // ga('send', 'pageview');
     </script>
 </head>
-
 <body>
     <nav>
         <h1 class="float-left">Bass Note</h1>
         <ul>
             <li data-bind="click: NotesClick">Notes</li>
             <li data-bind="click: ScalesClick">Scales</li>
+            <li data-bind="click: SongsClick">Songs</li>
+            <li data-bind="click: DecoderClick">Decoder</li>
             <li class="cmd language float-right" data-bind="click: LanguageClick">
               <label class="btn active" data="en"><input type="radio" data="en" autocomplete="off" checked>English</label>
               <label class="btn" data="fr"><input type="radio" data="fr" autocomplete="off">Français</label>
@@ -78,7 +80,21 @@
             <li data-bind="text: Name, click: Click"></li>
         </ol>
     </div>
-
+    <div id="book" class="section">
+        
+    </div>
+    <div id="decoder" class="clearfix section hidden">
+        <textarea></textarea>
+        <button>Pop</button>
+        <textarea></textarea>
+    </div>
+    <div id="songs" class="fclear-right section section-songs">
+        <h2>Songs</h2>
+        <ol data-bind="foreach: Songs">
+            <li data-bind="text: Name, click: Click, css: { active: IsActive }"></li>
+        </ol>
+    </div>
+    
     <div class="float-left section section-input">
         <div class="tab-seeker">
             <span class="string-label string1-label" data-bind="text: String1Label"></span><span class="string-notes string1-notes" data-bind="text: String1Notes"></span><br />
